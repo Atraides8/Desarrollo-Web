@@ -1,0 +1,731 @@
+/* VARIABLES*/
+/* Colores principales */
+:root {
+  --blanco: rgb(254, 254, 254);
+  --negro: rgb(23, 24, 22);
+}
+
+/* GOBLABLES */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+}
+
+/* SCROLL SNAP */
+.inicio, .servicios, .contacto{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background-color: var(--negro);
+}
+
+/* TIPOGRAFIA */
+
+h1,
+h2,
+h3,
+p {
+  font-family: "Cormorant Garamond", serif;
+  text-align: center;
+}
+
+/* UTILIDAD */
+/* Esta sirve para que alla dinamismo con el scroll */
+.fadeTop {
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.fadeRight {
+  opacity: 0;
+  transform: translate(10vh, 0vh);
+  transition: all 1s;
+}
+
+.fadeLeft {
+  opacity: 0;
+  transform: translate(-10vh, 0vh);
+  transition: all 1s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/*                                        */
+
+/* Esto hace que los enlaces del navegador esten centrados */
+.contenedor {
+  /*   max-width: 120rem; */
+  margin: 0 auto;
+}
+
+/* INICIO */
+/* Efecto de desaparecer y aparecer */
+.home-title span {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  line-height: 1.2;
+}
+
+.home-title span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--blanco);
+  animation: a-ltr-after 2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  transform: translateX(-101%);
+}
+
+.home-title span:nth-of-type(1)::before,
+.home-title span:nth-of-type(1)::after {
+  animation-delay: 1s;
+}
+
+.home-title span:nth-of-type(2)::before,
+.home-title span:nth-of-type(2)::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes a-ltr-after {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes a-ltr-before {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* Oculta los elementos al inicio */
+.elemento1,
+.elemento2 {
+  visibility: hidden;
+}
+
+/* Define la animación que hace aparecer el elemento después de los segundos indicados */
+@keyframes aparecer {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+/* Asigna la animación al elemento con un retraso de 2 segundos para el elemento1 y 2.5s para el elemento 2 */
+.elemento1 {
+  animation: aparecer 0s linear 2s forwards;
+}
+
+.elemento2 {
+  animation: aparecer 0s linear 2.5s forwards;
+}
+/*  FIN*/
+
+/* MQ */
+
+/* HEADER */
+/* NAVEGACION PRINCIPAL */
+.logo {
+  width: 4.5rem;
+  margin: 0.5rem 6.5rem;
+}
+.nav-bg {
+  display: flex;
+  align-items: center;
+  background-color: var(--blanco);
+}
+
+.navegacion-principal {
+  display: flex;
+  justify-content: center;
+}
+
+.navegacion-principal a {
+  text-decoration: none;
+  margin: 0 0.2rem;
+  padding: 2.1rem 4rem;
+  color: var(--negro);
+  font-family: "Cormorant Garamond", serif;
+  font-weight: lighter;
+}
+
+.boton-nav-contacto-1 {
+  background-color: var(--negro);
+  color: var(--blanco);
+  margin: 0rem 3rem 0rem 0rem;
+  cursor: pointer;
+  border-radius: 4rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+}
+
+.boton-nav-contacto-2 {
+  background-color: var(--negro);
+  color: var(--blanco);
+  padding: 1rem 3rem;
+
+  cursor: pointer;
+  border-radius: 4rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navegacion-principal a:hover {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.nav-bg .boton-nav-contacto-2:hover {
+  background-color: var(--blanco);
+  color: var(--negro);
+}
+
+/* SECCION INTRO */
+
+.intro {
+  background-image: url(../img/contemporary-room-workplace-office-supplies-concept.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 72.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.intro h1 {
+  color: var(--blanco);
+  font-size: 7rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bolder;
+  margin: 1rem;
+  letter-spacing: 6px;
+}
+
+.contenido-intro p {
+  color: var(--blanco);
+  font-size: 3rem;
+  margin: 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: lighter;
+}
+
+.contenido-intro {
+  position: absolute;
+  background-color: rgb(23, 24, 22, 0.9);
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SECCION MAIN */
+
+main h2 {
+  color: var(--blanco);
+  padding-top: 6rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  letter-spacing: 6px;
+}
+
+main p {
+  color: var(--negro);
+  font-size: 2rem;
+}
+
+/* .tarjeta-diseño,
+.tarjeta-commerce,
+.tarjeta-aplicaciones {
+  background-color: var(--blanco);
+  margin-top: 3rem;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+  margin-left: 5rem;
+  padding: 5rem;
+} */
+
+/* Codigo anexo para las tarjetas */
+
+.container {
+  margin: 5rem auto;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container .card {
+  position: relative;
+  cursor: pointer;
+}
+
+.container .card .face {
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.container .card .face.face1 {
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container .card:hover .face.face1 {
+  background-color: grey;
+  transform: translateY(0);
+}
+
+.container .card .face.face1 .content {
+  opacity: 0.2;
+  transition: 0.5s;
+}
+
+.container .card:hover .face.face1 .content {
+  opacity: 1;
+}
+
+.container .card .face.face1 .content img {
+  max-width: 100px;
+}
+
+.container .card .face.face1 .content h3 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container .card .face.face2 {
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+
+.container .card:hover .face.face2 {
+  transform: translateY(0);
+}
+
+.container .card .face.face2 .content p {
+  margin: 0;
+  padding: 0;
+}
+
+.container .card .face.face2 .content a {
+  margin: 15px 0 0;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: 1px solid #333;
+}
+
+.container .card .face.face2 .content a:hover {
+  background: #333;
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FOOTER */
+
+#contact {
+  width: 100%;
+  height: 100%;
+}
+
+.section-header {
+  text-align: center;
+  margin: 0 auto;
+  padding: 40px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5rem;
+  color: #fff;
+  letter-spacing: 6px;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto 11rem auto;
+  padding: 20px;
+  position: relative;
+  max-width: 840px;
+}
+
+/* Left contact page */
+.form-horizontal {
+  /*float: left;*/
+  max-width: 400px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.form-control,
+textarea {
+  max-width: 400px;
+  background-color: #000;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.send-button {
+  margin-top: 15px;
+  height: 34px;
+  width: 400px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.alt-send-button {
+  width: 400px;
+  height: 34px;
+  transition: all 0.2s ease-in-out;
+}
+
+.send-text {
+  display: block;
+  margin-top: 10px;
+  font: 700 12px "Lato", sans-serif;
+  letter-spacing: 2px;
+}
+
+.alt-send-button:hover {
+  transform: translate3d(0px, -29px, 0px);
+}
+
+/* Begin Right Contact Page */
+.direct-contact-container {
+  max-width: 400px;
+}
+
+/* Location, Phone, Email Section */
+.contact-list {
+  list-style-type: none;
+  margin-left: -30px;
+  padding-right: 20px;
+}
+
+.list-item {
+  line-height: 4;
+  color: #aaa;
+}
+
+.contact-text {
+  font: 300 18px "Lato", sans-serif;
+  letter-spacing: 1.9px;
+  color: #bbb;
+}
+
+.place {
+  margin-left: 62px;
+}
+
+.phone {
+  margin-left: 56px;
+}
+
+.gmail {
+  margin-left: 53px;
+}
+
+.contact-text a {
+  color: #bbb;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+.contact-text a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Social Media Icons */
+.social-media-list {
+  position: relative;
+  font-size: 22px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.social-media-list li a {
+  color: #fff;
+}
+
+.social-media-list li {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 10px 3px;
+  line-height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: rgb(27, 27, 27);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-media-list li:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 0 1px #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-media-list li:hover {
+  background-color: #fff;
+}
+
+.social-media-list li:hover:after {
+  opacity: 1;
+  transform: scale(1.12);
+  transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+}
+
+.social-media-list li:hover a {
+  color: #000;
+}
+
+.copyright {
+  font: 200 14px "Oswald", sans-serif;
+  color: #555;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Begin Media Queries*/
+@media screen and (max-width: 850px) {
+  .contact-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .direct-contact-container,
+  .form-horizontal {
+    margin: 0 auto;
+  }
+
+  .direct-contact-container {
+    margin-top: 60px;
+    max-width: 300px;
+  }
+  .social-media-list li {
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+  }
+  .social-media-list li:after {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .direct-contact-container,
+  .form-wrapper {
+    float: none;
+    margin: 0 auto;
+  }
+  .form-control,
+  textarea {
+    margin: 0 auto;
+  }
+
+  .name,
+  .email,
+  textarea {
+    width: 280px;
+  }
+
+  .direct-contact-container {
+    margin-top: 60px;
+    max-width: 280px;
+  }
+  .social-media-list {
+    left: 0;
+  }
+  .social-media-list li {
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+    font-size: 2rem;
+  }
+  .social-media-list li:after {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .send-button {
+    width: 99%;
+  }
+
+  .alt-send-button {
+    width: 180px;
+    height: 34px;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+/* MQ de nav */
+
+@media (max-width: 830.29px) {
+  .nav-bg {
+    width: 1200px;
+  }
+}
+@media (max-width: 600px) {
+
+  html {
+    scroll-snap-type: none;
+  }
+  .nav-bg {
+    display: flex;
+    background-color: var(--blanco);
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: auto;
+  }
+  .navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .boton-nav-contacto-2 {
+    display: none;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navegacion-principal a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0.9rem 1rem;
+    color: var(--negro);
+    font-family: "Cormorant Garamond", serif;
+    font-weight: lighter;
+    white-space: nowrap;
+  }
+
+  .mail-propio {
+    font-size: 1rem;
+  }
+
+  .container {
+    margin: 5rem auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-control,
+  textarea {
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .nav-bg .navegacion-principal .inicio {
+    padding: 0.9rem 10rem;
+  }
+
+  .intro h1 {
+    font-size: 5rem;
+  }
+
+  main h2 {
+    font-size: 4rem;
+  }
+
+  .section-header {
+    font-size: 4rem;
+  }
+
+  .intro {
+    height: 51rem;
+  }
+
+  .container .card .face {
+    width: 25rem;
+  }
+
+  .container .card .face.face1 {
+    width: 25rem;
+  }
+
+  .mail-propio {
+    font-size: 1.1rem;
+  }
+
+  .mi-telefono {
+    font-size: 1.7rem;
+  }
+}

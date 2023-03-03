@@ -37,6 +37,13 @@ html {
   box-sizing: inherit;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #9b00ff;
+  
+}
+
 body {
   font-size: 16px; /* 1rem = 10px pero con la ventaja de que los rem se adaptan mejor a las pantallas con densidad muy alta */
   font-family: "Krub", sans-serif;
@@ -76,6 +83,15 @@ body {
   border: none;
 }
 
+.boton-contacto {
+  background-color: black;
+  color: #ffffff;
+  padding: 0rem 3rem;
+  margin: .8rem .8rem;
+  cursor: pointer;
+  border-radius: 4rem;
+}
+
 @media (min-width: 768px) {
   .boton {
     width: auto;
@@ -95,6 +111,8 @@ body {
   border-radius: 1rem;
 }
 
+
+
 /* TIPOGRAFIA */
 /* Design system */
 h1 {
@@ -107,6 +125,7 @@ h2 {
 
 h3 {
   font-size: 1.8rem;
+  color: white;
 }
 
 h1,
@@ -140,19 +159,26 @@ h3 {
 }
 
 /* NAVEGACION PRINCIPAL */
-.nav-bg {
-  background-color: var(--secundario);
-}
 
 .navegacion-principal {
   display: flex;
   flex-direction: column;
 }
+
 @media (min-width: 768px) {
   .navegacion-principal {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
+
+/*   .nav-bg .boton-contacto {
+
+    flex-direction: row;
+    justify-content: center;
+
+  } */
+  
+
 }
 
 .navegacion-principal a {
@@ -160,44 +186,78 @@ h3 {
   text-align: center;
   color: var(--blanco);
   text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  /* Aqui el padding tambien se puede resumir el top, right, bottom y left como: */
+  /* El padding "engorda" el item */
+  padding: 2.1rem;
+}
+/* 
+.nav-bg a {
+  display: block;
+  text-align: right;
+  color: var(--blanco);
+  text-decoration: none;
   font-size: 2rem;
   font-weight: 700;
   /* Aqui el padding tambien se puede resumir el top, right, bottom y left como: */
   /* El padding "engorda" el item */
-  padding: 1rem;
+  /*padding: 1rem;/*
 }
+ */
 
 /* Este atributo nos permite cambiar el color de una de las opciones de
 navegacion cuando el cursor esta encima de el */
 .navegacion-principal a:hover {
-  background-color: var(--primario);
-  color: var(--oscuro);
+  background-color: #000000;
+  color: #ffffff;
 }
+
+.logo {
+  padding: .5rem;
+  cursor: pointer;
+}
+
+
 
 /*HERO*/
 /*El "padre" siempre debe tener posicion relativa para que el hijo se pueda posicionar de forma absoluta  */
 .hero {
-  background-image: url(../img/hero.jpg);
+/*   background-image: url(../img/hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 450px;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; */
+  width: 100%;
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(45deg,#000000,#000000, #000000, #7700c6);
+  background-size: 400% 400%;
+  position: relative;
+  animation: cambiar 15s ease-in-out infinite;
+  /* 45deg,#9900ff,#b443ff, #9900ff,rgb(255, 0, 247) */
+}
+
+@keyframes cambiar{
+  0%{background-position: 0 50%;}
+  50%{background-position: 100% 50%;}
+  100%{background-position: 0 50%;}
 }
 
 .contenido-hero {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7); /* Anterior */
-  /* background-color: rgb(0 0 0 / 70%); */ /* Forma nueva */
+  /* background-color: rgb(0 0 0 / 70%); */
   width: 100%;
   height: 100%;
-
-  /*Este codigo se usa siempre que es necesario alinear tanto vertical como horizontalmente  */
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
+
+
 
 .contenido-hero h2,
 .contenido-hero p {
@@ -206,7 +266,8 @@ navegacion cuando el cursor esta encima de el */
 
 .contenido-hero .ubicacion {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
 /* SERVICIOS */
@@ -248,6 +309,41 @@ navegacion cuando el cursor esta encima de el */
     justify-content: center;
     align-items: center;
 
+}
+
+.imgCentral {
+  margin-left: 6rem;
+  margin-top: 0;
+
+}
+
+.leyendaImagenCentral {
+  margin-left: 9rem;
+  margin-bottom: 2rem;
+}
+
+.imgCentral {
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 6rem;
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+/* SIN TERMINAR ATENTO CON ESTA PARTE AL RETOMAR! OJO */
+.textoImagenCentral {
+  color: white;
+  font-size: 3rem;
 }
 
 /* CONTACTO */
